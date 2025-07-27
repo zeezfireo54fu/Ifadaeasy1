@@ -1,0 +1,161 @@
+
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      margin: 0;
+      padding-top: 80px;
+}
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 80px;
+      background-color: #1a237e;
+      padding: 15px 0;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 999;
+}
+
+.nav-link {
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 500;
+      position: relative;
+      transition: color 0.3s ease;
+}
+
+.nav-link::after {
+      content: "";
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      left: 0;
+      bottom: -4px;
+      background-color: red;
+      transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+      color: #D3009D;
+}
+
+.nav-link:hover::after {
+      width: 100%;
+}
+
+.main-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: calc(100vh - 80px);
+}
+
+    form {
+      background: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 300px;
+}
+
+    input, textarea {
+      width: 100%;
+      margin: 10px 0;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      outline-color: #1a237e;
+}
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #1a237e;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+}
+
+    button:hover {
+      background-color: #3949ab;
+}
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="blog.html" class="nav-link">blog</a>
+    <a href="about.html" class="nav-link">about</a>
+  </nav>
+
+  <div class="main-container">
+    <form id="contactForm">
+      <input type="text" id="name" placeholder="الاسم" required />
+      <input type="email" id="email" placeholder="البريد الإلكتروني" required />
+      <textarea id="message" placeholder="الرسالة" required></textarea>
+      <button type="submit">إرسال</button>
+    </form>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
+  
+<script type="module">
+  // استيراد مكتبات Firebase بشكل صحيح
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+  import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
+
+  // إعداد Firebase
+  const firebaseConfig = {
+    apiKey: "AIzaSyAL_rZcnlsnzG9XfFA6NBnUR80-uY9MWyk",
+    authDomain: "ifada-7b340.firebaseapp.com",
+    databaseURL: "https://ifada-7b340-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "ifada-7b340",
+    storageBucket: "ifada-7b340.appspot.com",
+    messagingSenderId: "498763975918",
+    appId: "1:498763975918:web:08873c81ad99b2cd64b7ff",
+    measurementId: "G-VV5HMXJ86L"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  // عند إرسال النموذج
+  document.getElementById('contactForm').addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
+
+    try {
+      await addDoc(collection(db, "messages"), {
+        name,
+        email,
+        message,
+        createdAt: serverTimestamp()
+      });
+
+      alert("تم إرسال الرسالة بنجاح!");
+      this.reset();
+    } catch (error) {
+      console.error("حدث خطأ:", error);
+      alert("حدث خطأ أثناء الإرسال");
+    }
+  });
+</script>
+  
+</body>
+</html>

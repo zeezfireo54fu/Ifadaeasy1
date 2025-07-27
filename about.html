@@ -1,0 +1,133 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About - Ifada Easy</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f4f6f8;
+      color: #333;
+    }
+
+    header {
+      background: #1a237e;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .logo {
+      font-weight: bold;
+      font-size: 24px;
+      color: black;
+    }
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  background-color: #1a237e;
+  padding: 9px 0;
+
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* تنسيق الروابط */
+.nav-link {
+  color: #333;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+/* تأثير عند المرور */
+.nav-link::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  left: 0;
+  bottom: -4px;
+  background-color: red;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #0077ff;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.nav-link {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-link:hover {
+  color: #D3009D;
+}
+
+    
+    .about-container {
+      max-width: 800px;
+      margin: 60px auto;
+      background: #fff;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    h1 {
+      color: #1a237e;
+    }
+
+    footer {
+      background: #1a237e;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      margin-top: 60px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">Ifada Easy</div>
+  <nav class="nav">
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="blog.html" class="nav-link">blog</a>
+    <a href="contact.html" class="nav-link">contact</a>
+  </nav>
+  </header>
+
+  <div class="about-container">
+    <h1>About Ifada Easy</h1>
+    <p>مرحباً بك في <strong>Ifada Easy</strong> – منصّة تهدف لتقديم محتوى تعليمي ونصائح عملية في مختلف المجالات، من أجل مساعدة الناس على تطوير أنفسهم، وتعلّم مهارات جديدة، وتحقيق أهدافهم بخطوات بسيطة وواضحة.</p>
+    <p>أنا مؤسس الموقع، أعمل بشكل فردي دون إظهار هويتي. أمتلك خلفية متنوّعة تشمل <strong>صناعة المحتوى، التداول، وتصميم المواقع</strong>. قررت إنشاء هذا الموقع لإفادة الناس وتوجيههم، وأيضًا لدعم مشروعي مادياً.</p>
+    <p><strong>Ifada Easy</strong> هو محاولة صادقة لبناء مجتمع يتبادل المعرفة، ويحفّز على العمل والتطوّر، ويمنح قيمة حقيقية وسط فوضى المحتوى المنتشر.</p>
+    <p>شكراً لزيارتك، ومرحباً بك دائماً في عالم Ifada Easy.</p>
+  </div>
+
+  <footer>
+    &copy; 2025 Ifada Easy. All rights reserved.
+  </footer>
+
+  <script>
+    // يمكن إضافة أي سلوك تفاعلي هنا
+    console.log("Welcome to Ifada Easy - About Page");
+  </script>
+  
+</body>
+</html>
